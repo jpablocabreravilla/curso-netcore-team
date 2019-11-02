@@ -20,10 +20,7 @@ namespace TGL.WebApp.Pages.Students
 
         [BindProperty]
         public Student Student { get; set; }
-        public void OnGet()
-        {
-
-        }
+        
         public IActionResult OnPostAsync(){
             if (!ModelState.IsValid)
             {
@@ -33,5 +30,9 @@ namespace TGL.WebApp.Pages.Students
             StudentStore.AddStudent(Student);
             return RedirectToPage("./Index");
         }
+        public void OnGet()
+        {
+        }
+
     }
 }

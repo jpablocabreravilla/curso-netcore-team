@@ -3,56 +3,56 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 }
-    <nav>
-        <div class="nav-wrapper bg-dark">
-            <a class="brand-logo center">Students</a>
-        </div>
-    </nav>
-<br />
-<br />
-<a asp-page="Add" role="button" class="btn btn-success"> Create new student</a>
-<br />
-<br />
+<nav>
+    <div class="nav-wrapper bg-dark">
+        <a class="brand-logo center">Students</a>
+    </div>
+</nav>
+
+<br /> <!-- PARA DARLE ESPACIO -->
 <form method="post">
     <table class="table">
-        <thead class="thead-dark">
+        <thead class="thead-light">
             <tr>
-                <th scope="col">ID          </th>
-                <th scope="col">Name           </th>
-                <th scope="col">Last Name  </th>
-                <th scope="col">Age           </th>
-                <th scope="col">Nit            </th>
-                <th scope="col" colspan="2"><center>Acciones</center></th>
+                <th>Id:         </th>
+                <th>Name:       </th>
+                <th>LastName:   </th>
+                <th>Nit:        </th>
+                <th>Age:        </th>
+                <th colspan="2"> <center>Options: </center> </th>
 
             </tr>
-        </thead>
+
+        <thead>
         <tbody>
-            @foreach (var student in Model.Students)
+            @foreach (var item in Model.Students)  // foreach , recorre objetos (lista en este caso) sin tener que delimitarla con i
             {
-            <tr>
-                <td>@student.Id         </td>
-                <td>@student.Name       </td>
-                <td>@student.LastName       </td>
-                <td>@student.Age        </td>
-                <td>@student.Nit        </td>
-                <td>
-                    <a role="button" class="btn btn-outline-primary"
-                       asp-page="Edit"
-                       asp-route-id="@student.Id"> Edit</a>
-                </td>
-                <td>
-                    <button class="btn btn-outline-danger" type="submit"
-                            asp-page-handler="delete"
-                            asp-route-id="@student.Id">
-                        Delete
-                    </button>
-                </td>
-            </tr>
+                <tr>
+                    <td>@item.Id        </td>
+                    <td>@item.Name      </td>
+                    <td>@item.LastName  </td>
+                    <td>@item.Nit       </td>
+                    <td>@item.Age       </td>
+                    <td>
+                        <a class="btn btn-outline-success"
+                           asp-page="Edit"
+                           asp-route-id="@item.Id">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                class="btn btn-outline-danger"
+                                asp-page-handler="delete"
+                                asp-route-id="@item.Id">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
             }
-
-
         </tbody>
-
     </table>
 </form>
+
+<a asp-page="Add" class="btn btn-info"> Create new student </a>
 
