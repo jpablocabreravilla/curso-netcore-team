@@ -1,0 +1,58 @@
+﻿@page
+@model TGL.WebApp.Pages.Students.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+    <nav>
+        <div class="nav-wrapper bg-dark">
+            <a class="brand-logo center">Students</a>
+        </div>
+    </nav>
+<br />
+<br />
+<a asp-page="Add" role="button" class="btn btn-success"> Create new student</a>
+<br />
+<br />
+<form method="post">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID          </th>
+                <th scope="col">Name           </th>
+                <th scope="col">Last Name  </th>
+                <th scope="col">Age           </th>
+                <th scope="col">Nit            </th>
+                <th scope="col" colspan="2"><center>Acciones</center></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+            <tr>
+                <td>@student.Id         </td>
+                <td>@student.Name       </td>
+                <td>@student.LastName       </td>
+                <td>@student.Age        </td>
+                <td>@student.Nit        </td>
+                <td>
+                    <a role="button" class="btn btn-outline-primary"
+                       asp-page="Edit"
+                       asp-route-id="@student.Id"> Edit</a>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger" type="submit"
+                            asp-page-handler="delete"
+                            asp-route-id="@student.Id">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+</form>
+
