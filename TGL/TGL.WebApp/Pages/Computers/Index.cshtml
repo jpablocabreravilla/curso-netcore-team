@@ -1,0 +1,56 @@
+﻿@page
+@model TGL.WebApp.Pages.Computers.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+<nav>
+    <div class="nav-wrapper bg-light text-dark">
+        <a class="brand-logo center">Computers </a>
+    </div>
+</nav>
+<br />
+<br />
+<!-- y finaliza por -->
+<form method="post">
+	<table class="table">
+		<thead class="thead-light">
+			<tr>
+				<th scope="col">ID          </th>
+				<th scope="col">StudentID           </th>
+				<th scope="col">Brand  </th>
+				<th scope="col">Model           </th>
+				<th scope="col">Cpu            </th>
+				<th scope="col">Ram           </th>
+				<th scope="col" colspan="2"><center>Acciones</center></th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var computer in Model.Computers)
+			 {
+				<tr>
+					<td>@computer.Id         </td>
+					<td>@computer.StudentId       </td>
+					<td>@computer.Brand       </td>
+					<td>@computer.Model        </td>
+					<td>@computer.Cpu        </td>
+					<td>@computer.Ram        </td>
+					<td>
+						<a role="button" class="btn btn-outline-primary"
+						   asp-page="Edit"
+						   asp-route-id="@computer.Id"> Edit</a>
+					</td>
+					<td>
+						<button class="btn btn-outline-danger" type="submit"
+								asp-page-handler="delete"
+								asp-route-id="@computer.Id">
+			 				Delete
+						</button>
+					</td>
+				</tr>
+			 }
+		</tbody>
+	</table>
+	<a asp-page="Add" role="button" class="btn btn-outline-success"> Create new Pc</a>
+</form>
+

@@ -12,13 +12,11 @@ namespace TGL.WebApp.Models
             Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
-        public Guid StudentId { get; set; }
+        public Guid StudentId { get; set; } //un estudiante puede tener muchos computer
         public string Brand { get; set; }
         public string Model { get; set; }
-        public string Cpu { get; set; }
-        public string Ram { get; set; }
+        public double Cpu { get; set; }
+        public double Ram { get; set; }
 
-
-
-}
+    }
 }

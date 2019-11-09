@@ -1,0 +1,51 @@
+﻿@page
+@model TGL.WebApp.Pages.Computers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<nav>
+    <div class="nav-wrapper bg-dark">
+        <a class="brand-logo center">Edit Computers</a>
+    </div>
+</nav>
+<br />
+<br />
+<div class="row">
+    <form method="post" class="col s12">
+        <input hidden asp-for="Computer.Id" />
+        <input hidden asp-for="Computer.StudentId" />
+        <div class="row">
+            <div class="input-field col s6">
+                <input asp-for="Computer.Brand" />
+                <span class="helper-text" data-error="wrong" data-success="right">Brand</span>
+            </div>
+            <div class="input-field col s6">
+                <input asp-for="Computer.Model" />
+                <span class="helper-text" data-error="wrong" data-success="right">Model</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input asp-for="Computer.Cpu" />
+                <span class="helper-text" data-error="wrong" data-success="right">Cpu</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input asp-for="Computer.Ram" />
+                <span class="helper-text" data-error="wrong" data-success="right">Ram</span>
+            </div>
+        </div>
+		<div class="row">
+			<button class="waves-effect waves-light btn col s12 border-info" type="submit">
+				Save
+			</button>
+		</div>
+    </form>
+
+</div>
+<br />
+<br />
+<a asp-page="./Index">Return to list</a>

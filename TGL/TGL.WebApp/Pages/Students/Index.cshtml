@@ -4,55 +4,70 @@
 @{
 }
 <nav>
-    <div class="nav-wrapper bg-dark">
+    <div class="nav-wrapper bg-light text-dark">
         <a class="brand-logo center">Students</a>
     </div>
 </nav>
-
-<br /> <!-- PARA DARLE ESPACIO -->
+<br />
+<br />
+<!-- y finaliza por -->
 <form method="post">
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th>Id:         </th>
-                <th>Name:       </th>
-                <th>LastName:   </th>
-                <th>Nit:        </th>
-                <th>Age:        </th>
-                <th colspan="2"> <center>Options: </center> </th>
+	<table class="table">
+		<thead class="thead-light text-dark">
+			<tr>
+				<th scope="col">ID          </th>
+				<th scope="col">Name           </th>
+				<th scope="col">Last Name  </th>
+				<th scope="col">Age           </th>
+				<th scope="col">Nit            </th>
+				<th scope="col">Computers            </th>
+				<th scope="col" colspan="3"><center>Acciones</center></th>
 
-            </tr>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var student in Model.Students)
+			{
+				<tr>
+					<td>@student.Id         </td>
+					<td>@student.Name       </td>
+					<td>@student.LastName       </td>
+					<td>@student.Age        </td>
+					<td>@student.Nit        </td>
+					<td>
+						@foreach (var computer in @student.Computers)
+						{
+							<table>
+								<tr>
+									<td>@computer.Brand ,  </td>
+									<td>@computer.Model ,  </td>
+									<td>@computer.Cpu  </td>
+								</tr>
+							</table>
+						}
 
-        <thead>
-        <tbody>
-            @foreach (var item in Model.Students)  // foreach , recorre objetos (lista en este caso) sin tener que delimitarla con i
-            {
-                <tr>
-                    <td>@item.Id        </td>
-                    <td>@item.Name      </td>
-                    <td>@item.LastName  </td>
-                    <td>@item.Nit       </td>
-                    <td>@item.Age       </td>
-                    <td>
-                        <a class="btn btn-outline-success"
-                           asp-page="Edit"
-                           asp-route-id="@item.Id">
-                            Edit
-                        </a>
-                    </td>
-                    <td>
-                        <button type="submit"
-                                class="btn btn-outline-danger"
-                                asp-page-handler="delete"
-                                asp-route-id="@item.Id">
-                            Delete
-                        </button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+					</td>
+					<td>
+						<a role="button" class="btn btn-outline-primary"
+						   asp-page="Edit"
+						   asp-route-id="@student.Id"> Edit</a>
+					</td>
+					<td>
+						<button class="btn btn-outline-danger" type="submit"
+								asp-page-handler="delete"
+								asp-route-id="@student.Id">
+							Delete
+						</button>
+					</td>
+					<td>
+						<a role="button" class="btn btn-outline-primary"
+						   asp-page="../Computers/Index"
+						   asp-route-studentid="@student.Id"><i class="material-icons">computer</i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<a asp-page="Add" role="button" class="btn btn-outline-success"> Create new student</a>
 </form>
-
-<a asp-page="Add" class="btn btn-info"> Create new student </a>
 

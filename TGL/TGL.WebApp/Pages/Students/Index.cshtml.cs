@@ -13,7 +13,7 @@ namespace TGL.WebApp.Pages.Students
     {
         public StudentStore StudentStore { get; set; }
         public List<Student> Students { get; set; }
-        public IndexModel(StudentStore studentStore)
+        public IndexModel(StudentStore studentStore, ComputerStore computerStore)
         {
             StudentStore = studentStore;
             Students = StudentStore.GetStudents();
