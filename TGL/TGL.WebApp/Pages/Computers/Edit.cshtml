@@ -6,12 +6,11 @@
 }
 
 <nav>
-    <div class="nav-wrapper bg-dark">
+    <div class="nav-wrapper bg-light text-dark">
         <a class="brand-logo center">Edit Computers</a>
     </div>
 </nav>
-<br />
-<br />
+
 <div class="row">
     <form method="post" class="col s12">
         <input hidden asp-for="Computer.Id" />
@@ -44,8 +43,6 @@
 			</button>
 		</div>
     </form>
-
 </div>
 <br />
-<br />
-<a asp-page="./Index">Return to list</a>
+<a asp-page="./Index">Return to list Computers</a>

@@ -4,16 +4,15 @@
 @{
 }
 <nav>
-    <div class="nav-wrapper bg-light text-dark">
-        <a class="brand-logo center">Computers </a>
-    </div>
+	<div class="nav-wrapper bg-light text-dark">
+		<a class="brand-logo center">Computers </a>
+	</div>
 </nav>
 <br />
-<br />
-<!-- y finaliza por -->
+
 <form method="post">
 	<table class="table">
-		<thead class="thead-light">
+		<thead class="thead-light text-dark">
 			<tr>
 				<th scope="col">ID          </th>
 				<th scope="col">StudentID           </th>
@@ -22,12 +21,11 @@
 				<th scope="col">Cpu            </th>
 				<th scope="col">Ram           </th>
 				<th scope="col" colspan="2"><center>Acciones</center></th>
-
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var computer in Model.Computers)
-			 {
+			{
 				<tr>
 					<td>@computer.Id         </td>
 					<td>@computer.StudentId       </td>
@@ -44,13 +42,20 @@
 						<button class="btn btn-outline-danger" type="submit"
 								asp-page-handler="delete"
 								asp-route-id="@computer.Id">
-			 				Delete
+							Delete
 						</button>
 					</td>
 				</tr>
-			 }
+			}
 		</tbody>
 	</table>
-	<a asp-page="Add" role="button" class="btn btn-outline-success"> Create new Pc</a>
+	<div>
+		<a asp-page="Add" role="button" class="btn btn-outline-success"
+		   asp-route-studentid="@Model.Studentid"> Create new PC </a>
+	</div>
+	<br />
+	<br />
+	<div>
+		<a asp-page="/Students/Index">Return to Page Students</a>
+	</div>
 </form>
-

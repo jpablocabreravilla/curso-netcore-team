@@ -13,6 +13,14 @@ namespace TGL.WebApp.Pages.Computers
     {
         public ComputerStore ComputerStore { get; set; }
         public List<Computer> Computers { get; set; }
+        [BindProperty]
+        public Guid Studentid { get; set; }
+
+        public void OnGet(Guid studentid)
+        {
+            Studentid = studentid;
+
+        }
         public IndexModel(ComputerStore computerStore)
         {
             ComputerStore = computerStore;
@@ -23,8 +31,6 @@ namespace TGL.WebApp.Pages.Computers
             ComputerStore.DeleteComputer(id);
             return RedirectToPage();
         }
-        public void OnGet()
-        {
-        }
+
     }
 }

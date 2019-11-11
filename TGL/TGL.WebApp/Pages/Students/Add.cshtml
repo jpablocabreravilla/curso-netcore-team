@@ -1,48 +1,48 @@
 ﻿@page
 @model TGL.WebApp.Pages.Students.AddModel
 @{
-    ViewData["Title"] = "Add";
+	ViewData["Title"] = "Add";
 }
 
-    <nav>
-        <div class="nav-wrapper bg-light text-dark">
-            <a class="brand-logo center">Add Student</a>
-        </div>
-    </nav>
-	<br />
-	<br />
-<div class="row" >
-    <form method="post" class="col s12">
-        <div class="row">
-            <div class="input-field col s6">
-                <input asp-for="Student.Name" />
-                <span class="helper-text" data-error="wrong" data-success="right">Name</span>
-            </div>
-            <div class="input-field col s6">
-                <input asp-for="Student.LastName" />
-                <span class="helper-text" data-error="wrong" data-success="right">LastName</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input asp-for="Student.Age" />
-                <span class="helper-text" data-error="wrong" data-success="right">Age</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input asp-for="Student.Nit" />
-                <span class="helper-text" data-error="wrong" data-success="right">Nit</span>
-            </div>
-        </div>
+<nav>
+	<div class="nav-wrapper bg-light text-dark">
+		<a class="brand-logo center">Add Student</a>
+	</div>
+</nav>
+<br />
+<br />
+<div class="row">
+	<form method="post" class="col s12">
+		<div class="row">
+			<div class="input-field col s6">
+				<input asp-for="Student.Name" />
+				<span class="helper-text" data-error="wrong" data-success="right">Name</span>
+			</div>
+			<div class="input-field col s6">
+				<input asp-for="Student.LastName" />
+				<span class="helper-text" data-error="wrong" data-success="right">LastName</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input asp-for="Student.Age" />
+				<span class="helper-text" data-error="wrong" data-success="right">Age</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input asp-for="Student.Nit" />
+				<span class="helper-text" data-error="wrong" data-success="right">Nit</span>
+			</div>
+		</div>
 		<div class="row">
 			<button class="waves-effect waves-light btn col s12 border-info" type="submit">
 				Save
 			</button>
 		</div>
-    </form>
+	</form>
 
 </div>
 <br />
 <br />
-<a asp-page="./Index">Return to list</a>
+<a asp-page="./Index">Return to list Students</a>
