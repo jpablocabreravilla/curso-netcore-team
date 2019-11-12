@@ -9,11 +9,18 @@ namespace TGL.WebApp.Data
     public class ComputerStore
     {
         public TGLContext Context { get; set; }
+
         public ComputerStore(TGLContext context)
         {
             Context = context;
         }
-        internal void EditComputer(Computer computer) {
+
+		public List<Computer> GetComputers()
+		{
+			return Context.Computer.ToList();
+		}
+
+		internal void EditComputer(Computer computer) {
             Computer currentComputer = GetComputerById(computer.Id);
             currentComputer.Brand = computer.Brand;
             currentComputer.Model = computer.Model;
@@ -39,12 +46,7 @@ namespace TGL.WebApp.Data
         var computer = Context.Computer.FirstOrDefault(x => x.Id == id);
             Context.Computer.Remove(computer);
             Context.SaveChanges();
-        }
-
-        public List<Computer> GetComputers()
-        {
-            return Context.Computer.ToList();
-        }
+        }       
 
     }
 }

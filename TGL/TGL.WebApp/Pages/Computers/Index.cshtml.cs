@@ -12,15 +12,17 @@ namespace TGL.WebApp.Pages.Computers
     public class IndexModel : PageModel
     {
         public ComputerStore ComputerStore { get; set; }
+
         public List<Computer> Computers { get; set; }
+
         [BindProperty]
         public Guid Studentid { get; set; }
 
         public void OnGet(Guid studentid)
         {
             Studentid = studentid;
-
         }
+
         public IndexModel(ComputerStore computerStore)
         {
             ComputerStore = computerStore;
